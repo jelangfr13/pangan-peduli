@@ -1,0 +1,10 @@
+/* big hero blob background */
+.hero-blob {
+  background: radial-gradient(1200px 400px at 60% 20%, #e9f5ec 0%, rgba(233,245,236,0) 60%);
+}
+
+.badge {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 8px 14px; border-radius: 999px;
+  background: #e5f3e7; color: #1b5e20; font-weight: 600; font-size: 13px;
+}
