@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
@@ -9,6 +11,8 @@ import LinearProgress from '@mui/material/LinearProgress';
 import Button from '@mui/material/Button';
 import Chip from '@mui/material/Chip';
 import Stack from '@mui/material/Stack';
+
+import DialogDonate from '../components/DialogDonate';
 
 import Papua from '../assets/Papua.jpg'; 
 import Papua2 from '../assets/papua2.jpg';
@@ -29,6 +33,11 @@ const campaigns = [
 function money(n){ return new Intl.NumberFormat('id-ID',{style:'currency',currency:'IDR', maximumFractionDigits:0}).format(n) }
 
 export default function Events(){
+  const [ dialogDonateOpen, setDialogDonateOpen ] = useState(false);
+
+  const handleDonateOpen = () => setDialogDonateOpen(true);
+  const handleDonateClose = () => setDialogDonateOpen(false);
+
   const handleScrollToContact = (e) => {
     e.preventDefault();
     const el = document.getElementById('contact');
@@ -77,7 +86,7 @@ export default function Events(){
                   </CardContent>
 
                   <CardActions sx={{ px: 2, pb: 2 }}>
-                    <Button variant="contained">Donate Now</Button>
+                    <Button variant="contained" onClick={handleDonateOpen}>Donate Now</Button>
                     <Button>Details</Button>
                   </CardActions>
                 </Card>
@@ -85,6 +94,8 @@ export default function Events(){
             )
           })}
         </Grid>
+
+        <DialogDonate open={dialogDonateOpen} onClose={handleDonateClose} />
 
         {/* CTA band */}
         <Box
