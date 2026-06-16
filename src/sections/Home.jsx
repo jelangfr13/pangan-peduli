@@ -22,6 +22,65 @@ export default function Home({ onDonate }) {
   const [ openDialogInspiredHelp, setOpenDialogInspiredHelp ] = useState(false)
   const [ openDialogVolunteer, setOpenDialogVolunteer ] = useState(false)
 
+  const featureCardSx = {
+    width: '100%',
+    maxWidth: { xs: 360, sm: 400, md: '100%' },
+    height: '100%',
+    mx: { xs: 3, md: 0 },
+    borderRadius: '12px',
+    display: 'flex',
+  }
+
+  const featureContentSx = {
+    width: '100%',
+    minHeight: { xs: 230, sm: 250 },
+    px: { xs: 3, sm: 4 },
+    py: { xs: 4, sm: 5 },
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    textAlign: 'center',
+    '&:last-child': { pb: { xs: 4, sm: 5 } },
+    '&:hover': { bgcolor: 'rgba(0, 0, 0, 0.04)' },
+    cursor: 'default',
+  }
+
+  const featureIconSx = {
+    width: 44,
+    height: 44,
+    display: 'grid',
+    placeItems: 'center',
+    color: 'primary.main',
+    '& svg': { fontSize: 34 },
+  }
+
+  const featureTitleSx = {
+    mt: 2,
+    fontWeight: 700,
+    lineHeight: 1.2,
+    minHeight: { xs: 34, sm: 38 },
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  }
+
+  const featureDescriptionSx = {
+    color: 'text.secondary',
+    mt: 1.5,
+    lineHeight: 1.45,
+    minHeight: 58,
+    maxWidth: 320,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  }
+
+  const featureButtonSx = {
+    mt: 'auto',
+    minWidth: 124,
+    fontWeight: 700,
+  }
+
   const handleDonationsLearnMore = () => setOpenDialogDonations(true)
   const handleCloseDialogDonations = () => setOpenDialogDonations(false)
   const handleLetsDonate = () => {
@@ -140,93 +199,60 @@ export default function Home({ onDonate }) {
             justifyContent="center"
             sx={{ mt: { xs: 5, md: 8 } }}
           >
-            <Box flex={1} display="flex" justifyContent="center">
+            <Box flex={1} display="flex" justifyContent="center" alignItems="stretch">
               <Card
                 className="shadow-soft"
-                sx={{
-                  width: { xs: '100%', sm: 400, md: 1 },
-                  maxWidth: 400,
-                  mx: { xs: 3, md: 'auto' },
-                }}
+                sx={featureCardSx}
               >
-                <CardContent
-                  sx={{
-                    padding: 3,
-                    '&:hover': { bgcolor: 'rgba(0, 0, 0, 0.05)' },
-                    cursor: 'default',
-                    textAlign: 'center',
-                  }}
-                >
-                  <Box sx={{ fontSize: 34, color: 'primary.main' }}>
+                <CardContent sx={featureContentSx}>
+                  <Box sx={featureIconSx}>
                     <LocalDiningIcon />
                   </Box>
-                  <Typography variant="h5" sx={{ mt: 1, fontWeight: 600 }}>
+                  <Typography variant="h5" sx={featureTitleSx}>
                     Send us donations
                   </Typography>
-                  <Typography sx={{ color: 'text.secondary', mt: 0.5 }}>
+                  <Typography sx={featureDescriptionSx}>
                     Setiap donasi adalah energi untuk kehidupan.
                   </Typography>
-                  <Button sx={{ mt: 1.5 }} onClick={handleDonationsLearnMore}>Learn More</Button>
+                  <Button sx={featureButtonSx} onClick={handleDonationsLearnMore}>Learn More</Button>
                 </CardContent>
               </Card>
             </Box>
-            <Box flex={1} display="flex" justifyContent="center">
+            <Box flex={1} display="flex" justifyContent="center" alignItems="stretch">
               <Card
                 className="shadow-soft"
-                sx={{
-                  width: { xs: '100%', sm: 400, md: 1 },
-                  maxWidth: 400,
-                  mx: { xs: 3, md: 'auto' },
-                }}
+                sx={featureCardSx}
               >
-                <CardContent
-                  sx={{
-                    padding: 3,
-                    '&:hover': { bgcolor: 'rgba(0, 0, 0, 0.05)' },
-                    cursor: 'default',
-                    textAlign: 'center',
-                  }}
-                >
-                  <Box sx={{ fontSize: 34, color: 'primary.main' }}>
+                <CardContent sx={featureContentSx}>
+                  <Box sx={featureIconSx}>
                     <VolunteerActivismIcon />
                   </Box>
-                  <Typography variant="h5" sx={{ mt: 1, fontWeight: 600 }}>
+                  <Typography variant="h5" sx={featureTitleSx}>
                     Get inspired & help
                   </Typography>
-                  <Typography sx={{ color: 'text.secondary', mt: 0.5 }}>
+                  <Typography sx={featureDescriptionSx}>
                     Aksi kecilmu berdampak besar bagi mereka.
                   </Typography>
-                  <Button sx={{ mt: 1.5 }} onClick={handleInspiredLearnMore}>Learn More</Button>
+                  <Button sx={featureButtonSx} onClick={handleInspiredLearnMore}>Learn More</Button>
                 </CardContent>
               </Card>
             </Box>
-            <Box flex={1} display="flex" justifyContent="center">
+            <Box flex={1} display="flex" justifyContent="center" alignItems="stretch">
               <Card
                 className="shadow-soft"
-                sx={{
-                  width: { xs: '100%', sm: 400, md: 1 },
-                  maxWidth: 400,
-                  mx: { xs: 3, md: 'auto' },
-                }}
+                sx={featureCardSx}
               >
-                <CardContent
-                  sx={{
-                    padding: 3,
-                    '&:hover': { bgcolor: 'rgba(0, 0, 0, 0.05)' },
-                    cursor: 'default',
-                    textAlign: 'center',
-                  }}
-                >
-                  <Box sx={{ fontSize: 34, color: 'primary.main' }}>
+                <CardContent sx={featureContentSx}>
+                  <Box sx={featureIconSx}>
                     <Diversity1Icon />
                   </Box>
-                  <Typography variant="h5" sx={{ mt: 1, fontWeight: 600 }}>
+                  <Typography variant="h5" sx={featureTitleSx}>
                     Become a volunteer
                   </Typography>
-                  <Typography sx={{ color: 'text.secondary', mt: 0.5 }}>
+                  <Typography sx={featureDescriptionSx}>
                     Bergabung dan bantu kami di lapangan.
                   </Typography>
-                  <Button sx={{ mt: 1.5 }} onClick={handleVolunteerLearnMore}>Learn More</Button>
+                  <Button sx={featureButtonSx} onClick={handleVolunteerLearnMore}>Learn More</Button>
                 </CardContent>
               </Card>
             </Box>
